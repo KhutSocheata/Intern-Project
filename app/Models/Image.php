@@ -13,11 +13,11 @@ class Image extends Model
         'property_id',
     ];
  
-    // public function posts(){
-    //     return $this->belongsTo(Post::class);
-    // }
-
     public function properties(){
-        return $this->hasMany(Property::class);
+        return $this->belongsTo(Property::class);
     }
+
+    // public function properties(){
+    //     return $this->hasMany(Property::class);
+    // }
 }

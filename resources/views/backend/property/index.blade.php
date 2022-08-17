@@ -114,6 +114,9 @@
                                         <form action="{{ route('property.destroy', $property->id) }}" method="post">
                                              @csrf
                                             @method('DELETE')
+                                            <a href="{{ route('property.show', $property->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fas fa-pencil-alt"></i> View
+                                            </a>
                                             <a href="{{ route('property.edit', $property->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>

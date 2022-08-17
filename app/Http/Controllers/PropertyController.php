@@ -51,6 +51,7 @@ class PropertyController extends Controller
                 "size" => $request->size,
                 "price" => $request->price,
                 "cover" => $imageName,
+                // "type" => $request->type,
             ]);
             $properties->save();
         }
@@ -74,9 +75,10 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Property $property)
     {
-        return view('backend.property.show',compact('properties'));
+        
+        return view('backend.property.show',compact('property'));
     }
 
     /**

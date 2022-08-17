@@ -75,7 +75,7 @@
                             <label for="image">Image</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" id="input-file-now-custom-3" class="form-control m-0" name="image[]" multiple>
+                                    <input type="file" id="input-file-now-custom-3" class="form-control m-0" name="images[]" multiple>
                                 </div>
                             </div>
                         </div>
@@ -98,6 +98,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
+                <a class="btn btn-primary" href="{{ route('property.index') }}"> Back</a>
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </form>
