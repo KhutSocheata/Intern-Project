@@ -3,10 +3,10 @@
     <section class="content">
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <section class="content-header" style="margin: 0px">
+            <section class="content-header" >
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding: 0px 30px">
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6" >
-                            <ol class="breadcrumb float-sm-right">
+                            <ol class="breadcrumb float-sm-right" style="padding: 0px 30px">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                                 <li class="breadcrumb-item active">Property</li>
                             </ol>
@@ -29,7 +29,7 @@
                 </div><!-- /.container-fluid -->
             </section>
             <!-- Default box -->
-            <div class="card" style="margin: 0px 10px">
+            <div class="card" style="margin: 0px 40px">
                 <div class="card-header">
                     <h3 class="card-title">Detail Of Room</h3>
                     <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('rooms.create') }}"> Create New Room</a>

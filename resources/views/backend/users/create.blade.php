@@ -43,10 +43,10 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-group">
-                <div class="col-sm-6">
+            <div class="form-group ">
+                <div class="col-sm-6 " >
                     <!-- select -->
-                    <div class="form-group">
+                    <div>
                         <label for="type">Type User</label>
                         <select class="custom-select" name="type" > 
                             <option value="1">Admin</option>

@@ -1,11 +1,12 @@
 @extends('layouts.layout')
 @section('content')
+
     <body class="inner-pages hd-white">
         <!-- Wrapper -->
         <div id="wrapper">
             <!-- START SECTION HEADINGS -->
             <!-- Header Container
-                ================================================== -->
+                    ================================================== -->
             <div class="clearfix"></div>
             <!-- Header Container / End -->
             <section class="headings">
@@ -25,7 +26,8 @@
                         <div class="form-group">
                             <label>{{ __('Name') }}</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                placeholder="Name">
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -36,9 +38,21 @@
                         <div class="form-group">
                             <label>{{ __('Email Address') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                                name="email" value="{{ old('email') }}" required autocomplete="email"
+                                placeholder="Email">
 
                             @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('Phone Number') }}</label>
+                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                                name="phone" value="{{ old('phone') }}" required autocomplete="phone"
+                                placeholder="Phone Number">
+                            @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -48,7 +62,7 @@
                             <label>{{ __('Password') }}</label>
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="new-password">
+                                autocomplete="new-password" placeholder="Password">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -59,7 +73,7 @@
                         <div class="form-group">
                             <label>{{ __('Confirm Password') }}</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                required autocomplete="new-password">
+                                required autocomplete="new-password" placeholder="Comfirm Password">
                         </div>
                         <div id="pass-info" class="clearfix"></div>
                         <button type="submit" class="btn_1 rounded full-width add_top_30">

@@ -2,7 +2,7 @@
 @section('content')
     <div class="card card-primary" style="margin: 100px 400px; display: fixed">
         <div class="card-header">
-            <h3 class="card-title">Edit Address Of Property</h3>
+            <h3 class="card-title">Create Amenity</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Room;
+use App\Models\Property;
  
 use Illuminate\Http\Request;
   
@@ -39,9 +40,11 @@ class HomeController extends Controller
         // dd('12345');
 
         $user = User::get()->count();
-        $room = User::get()->count();
+        $room = Room::get()->count();
+        $property = Property::get()->count();
+       
 
-        return view('backend.layouts.dashboard', compact('user','room'));
+        return view('backend.layouts.dashboard', compact('room','property','user'));
 
     }
   
@@ -52,6 +55,6 @@ class HomeController extends Controller
      */
     public function managerHome()
     {
-        return view('crm.layouts.dashboard');
+        return view('agent.layouts.dashboard');
     }
 }

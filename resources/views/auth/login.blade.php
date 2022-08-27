@@ -27,17 +27,18 @@
                     <div class="form-group">
                         <label>{{ __('Email Address') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+                    
                     <div class="form-group">
                         <label>{{ __('Password') }}</label>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                            name="password" required autocomplete="current-password">
+                            name="password" required autocomplete="current-password" placeholder="Password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -47,7 +48,7 @@
                     <div class="fl-wrap filter-tags clearfix add_bottom_30">
                         <div class="checkboxes float-left">
                             <div class="filter-tags-wrap">
-                                <input type="checkbox" name="remember" id="remember"
+                                <input id="check-b" type="checkbox" name="check"
                                     {{ old('remember') ? 'checked' : '' }}>
                                 <label for="check-b" class="form-check-label">{{ __('Remember Me') }}</label>
                             </div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
@@ -15,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         
-        $users = User::paginate(5);
+        $users = User::paginate(12);
         return view('backend.users.index',compact('users'));
     }
 
@@ -38,13 +40,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            //'type' => 'required',
+            'type' => 'required',
+            'phone' => 'required'
         ]);
-    
-        User::create($request->all());
+        User:: create([ 'name'=> $request['name'],
+                               'email'=> $request['email'],
+                               'phone'=> $request['phone'],
+                               'type'=> $request['type'],
+                               'password'=> Hash::make($request['password'])
+                            ]);
      
         return redirect()->route('users.index')
                         ->with('success','Address created successfully!');
@@ -106,4 +114,18 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success','Address deleted successfully');
     }
+//     public function upload(Request $request)
+// {
+//     if($request->hasFile('image')){
+//         $filename = $request->image->getClientOriginalName();
+//         $request->image->storeAs('images',$filename,'public');
+//         Auth()->user()->update(['image'=>$filename]);
+//     }
+//     return redirect()->back();
+// }
+    public function edit_profile(){
+
+    }
 }
+
+

@@ -55,12 +55,14 @@
     <link rel="stylesheet" id="color" href="css/default.css">
     <link rel="stylesheet" href="css/maps.css">
     <link rel="stylesheet" id="color" href="css/colors/pink.css">
-    <link rel="stylesheet" href="css/home.css">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     
 </head>
+<body class="inner-pages homepage-4 agents hp-6 full hd-white">
+    <!-- Wrapper -->
+    <div id="wrapper">
 <!-- START SECTION HEADINGS -->
 <!-- Header Container
         ================================================== -->
@@ -88,14 +90,18 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="/property">Property</a>
                             <ul>
-                                <li><a href="/forrent">For Rent</a></li>
-                                <li><a href="/forsale">For Sale</a></li>
-                                <li><a href="/vacationrental">Vacation Rental</a></li>
+                                <li><a href="/propertyRent">For Rent</a></li>
+                                <li><a href="/propertySale">For Sale</a></li>
+                                <li><a href="/propertyRental">Vacation Rental</a></li>
                             </ul>
                         </li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/agent">Agent</a></li>
-                        <li><a href="/agent/dashboard">CRM</a></li>
+
+                       
+                        <li><a href="/manager/contacts">CRM</a></li>
+                       
+                    
                         <li><a href="/contact">Contact</a></li>     
                         <li class="d-none d-xl-none d-block d-lg-block"><a href="{{ route('login') }}">Login</a></li>
                     </ul>
@@ -139,12 +145,13 @@
                             
                             <div class="header-user-menu user-menu add">
                                 <div class="header-user-name">
-                                    <span><img src="images/testimonials/ts-1.jpg" alt=""></span>
-                                    
-                                        {{ Auth::user()->name }}
+                                    <span>                        
+                                        <img src="/profiles/avatars/{{ Auth::user()->avatar}}" alt="author-image" class="author__img">
+                                    </span>
+                                    {{ Auth::user()->name ? Auth::user()->name : '  ' }}
                                 </div>
                                 <ul>
-                                    <li><a href="user-profile.html"> Edit profile</a></li>
+                                    <li><a href="/editprofile"> Edit profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">
@@ -165,7 +172,7 @@
     <!-- Header / End -->
 
 </header>
-</div>
+
 <div class="clearfix"></div>
 <!-- Header Container / End --> 
 <!-- ARCHIVES JS -->
@@ -210,40 +217,98 @@
 
     @yield('content')
 
-<footer>
-    <div class="row primary">
-        <div class="column about">
-            <h3>Real Estate</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                voluptatem corporis error non,
-            </p>
-            <div class="social">
-                <i class="fa-brands fa-facebook-square" ></i>
-                <i class="fa-brands fa-instagram-square" style="color:rgb(184, 32, 32);"></i>
-                <i class="fa-brands fa-twitter-square"></i>
-                <i class="fa-brands fa-youtube-square" style="color:rgb(214, 30, 30);"></i>
-                <i class="fa-brands fa-whatsapp-square"></i>
+    
+    <!-- START FOOTER -->
+    <footer class="first-footer">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="netabout">
+                            <a href="index.html" class="logo">
+                                <img src="images/logo.png" alt="netcom">
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto soluta laboriosam, perspiciatis, aspernatur officiis esse.</p>
+                        </div>
+                        <div class="contactus">
+                            <ul>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        <p class="in-p">95 South Park Avenue, USA</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                        <p class="in-p">+456 875 369 208</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <p class="in-p ti">support@findhouses.com</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="navigation">
+                            <h3>Navigation</h3>
+                            <div class="nav-footer">
+                                <ul>
+                                    <li><a href="index.html">Home One</a></li>
+                                    <li><a href="properties-right-sidebar.html">Properties Right</a></li>
+                                    <li><a href="properties-full-list.html">Properties List</a></li>
+                                    <li><a href="properties-details.html">Property Details</a></li>
+                                    <li class="no-mgb"><a href="agents-listing-grid.html">Agents Listing</a></li>
+                                    
+                                </ul>
+                                <ul class="nav-right">
+                                    <li><a href="agent-details.html">Agents Details</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="blog.html">Blog Default</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                    <li class="no-mgb"><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="newsletters">
+                            <h3>Newsletters</h3>
+                            <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in your inbox.</p>
+                        </div>
+                        <form class="bloq-email mailchimp form-inline" method="post">
+                            <label for="subscribeEmail" class="error"></label>
+                            <div class="email">
+                                <input type="email" id="subscribeEmail" name="EMAIL" placeholder="Enter Your Email">
+                                <input type="submit" value="Subscribe">
+                                <p class="subscription-success"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="column links">
-            <h3>Useful Link</h3>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Resgister</a></li>
-                <li><a href="/service">Our Service</a></li>
-            </ul>
+        <div class="second-footer">
+            <div class="container">
+                <p>REAL ESTATE COMPANY</p>
+                <ul class="netsocials">
+    
+    
+    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
         </div>
-        <div class="column links">
-            <h3>Support Link</h3>
-            <ul>
-                <li><a href="/faq">F.A.Q</a></li>
-                <li><a href="/help">Help</a></li>
-                <li><a href="/term">Terms & conditions</a></li>
-                <li><a href="/privacy">Privacy Policy</a></li>
-            </ul>
-        </div>
+    </footer>
+    
+    <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+    <!-- END FOOTER -->
     </div>
-</footer>
+</body>
 </html>

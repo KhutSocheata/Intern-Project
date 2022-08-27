@@ -6,6 +6,7 @@ use App\Models\Property;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\Model;
 
 class PropertyController extends Controller
 {
@@ -17,7 +18,7 @@ class PropertyController extends Controller
     public function index()
     {
         $properties = Property::all();
-        return view('backend.property.index', compact('properties'))->with('properties', $properties);
+        return view('backend.properties.index', compact('properties'))->with('properties', $properties);
     }
 
     /**
@@ -27,7 +28,9 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('backend.property.create');
+
+        return view('backend.properties.create');
+        
     }
 
     /**
@@ -50,8 +53,11 @@ class PropertyController extends Controller
                 "bathroom" => $request->bathroom,
                 "size" => $request->size,
                 "price" => $request->price,
+                "description" => $request->description,
                 "cover" => $imageName,
-                // "type" => $request->type,
+                "types" => $request->types,
+                
+
             ]);
             $properties->save();
         }
@@ -66,7 +72,7 @@ class PropertyController extends Controller
                 Image::create($request->all());
             }
         }
-        return redirect()->route('property.index')->with('success', 'Address created successfully!');
+        return redirect()->route('properties.index')->with('success', 'Address created successfully!');
     }
 
     /**
@@ -78,7 +84,7 @@ class PropertyController extends Controller
     public function show(Property $property)
     {
         
-        return view('backend.property.show',compact('property'));
+        return view('backend.properties.show',compact('property'));
     }
 
     /**
@@ -90,7 +96,7 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $properties = Property::findOrFail($id);
-        return view('backend.property.edit')->with('properties', $properties);
+        return view('backend.properties.edit')->with('properties', $properties);
     }
 
     /**
@@ -120,6 +126,9 @@ class PropertyController extends Controller
             "bathroom" => $request->bathroom,
             "size" => $request->size,
             "price" => $request->price,
+            "types" => $request->types,            
+            "description" => $request->description,            
+
             "cover" => $properties->cover,
         ]);
 
@@ -133,7 +142,7 @@ class PropertyController extends Controller
                 Image::create($request->all());
             }
         }
-        return redirect()->route('property.index')
+        return redirect()->route('properties.index')
             ->with('success', 'Address updated successfully');
     }
 
@@ -158,7 +167,7 @@ class PropertyController extends Controller
         }
         $properties->delete();
 
-        return redirect()->route('property.index')
+        return redirect()->route('properties.index')
             ->with('success', 'Address deleted successfully');
     }
     public function deleteimage($id)
@@ -179,5 +188,12 @@ class PropertyController extends Controller
             File::delete("cover/" . $cover);
         }
         return back();
+    }
+
+
+    //many to many
+    public function types()
+    {
+        return $this->belongsToMany(Type::class);
     }
 }

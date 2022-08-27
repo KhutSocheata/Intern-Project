@@ -28,8 +28,11 @@
                                         <img class="img-responsive" src="images/blog/b-1.jpg" alt="blog image">
                                     </div>
                                 </a>
+                                @foreach($properties as $property)
+                                    
+                              
                                 <div class="news-item-text">
-                                    <a href="blog-details.html"><h3>Real Estate News</h3></a>
+                                    <a href="blog-details.html"><h3>{{$property->name}}</h3></a>
                                     <div class="dates">
                                         <span class="date">April 11, 2020 &nbsp;/</span>
                                         <ul class="action-list pl-0">
@@ -37,7 +40,7 @@
                                             <li class="action-item"><i class="fa fa-comment"></i> <span>34</span></li>
                                             <li class="action-item"><i class="fa fa-share-alt"></i> <span>122</span></li>
                                         </ul>
-                                    </div>
+                                    </div>@endforeach
                                     <div class="news-item-descr big-news">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ipsum dolor sit amet, consectetur.</p>
                                     </div>

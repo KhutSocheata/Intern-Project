@@ -1,4 +1,3 @@
-
 @extends('agent.layouts.app')
 @section('content')
     <div class="card card-primary" style="margin: 100px 400px; display: fixed">

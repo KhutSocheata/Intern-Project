@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::paginate(3);
+        $contacts = Contact::paginate(7);
         return view('agent.contacts.index',compact('contacts'));
     }
 

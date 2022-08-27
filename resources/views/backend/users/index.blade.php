@@ -6,7 +6,7 @@
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6" style="margin: 0px">
+                        <div class="col-sm-6" style="padding: 0px 30px">
 
 
                             <div class="form-inline">
@@ -22,9 +22,9 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+                            <ol class="breadcrumb float-sm-right" style="padding: 0px 30px">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active">DataTables</li>
+                                <li class="breadcrumb-item active">Users</li>
                             </ol>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
             </section>
 
             <!-- Default box -->
-            <div class="card" style="margin: 0px 10px">
+            <div class="card" style="margin: 0px 40px">
                 <div class="card-header">
                     <h3 class="card-title">List All Agency</h3>
                     <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('users.create') }}"> Create New User</a>
@@ -148,7 +148,7 @@
             </section>
 
             <!-- Default box -->
-            <div class="card" style="margin: 0px 10px">
+            <div class="card" style="margin: 0px 40px">
                 <div class="card-header">
                     <h3 class="card-title">List All Customers</h3>
                     
@@ -252,7 +252,7 @@
                             
                         </tbody>
                     </table>
-                    <p style="padding: 10px">{!! $users->links() !!}</p>
+                    
 
                   
                   
@@ -263,6 +263,7 @@
             </div>
            {{-- <div class="project-actions text-center">{!! $users->links() !!}</div> --}}
         <!-- /.card -->
+        <p style="padding: 10px">{!! $users->links() !!}</p>
         </div>
 
     </section>

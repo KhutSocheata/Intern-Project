@@ -16,6 +16,13 @@ class Property extends Model
         'size',
         'price',
         'cover',
+        'description',
+        
+        'types'
+    ];
+
+    protected $casts=[
+        'types'=>'array',
     ];
 
     public function images(){

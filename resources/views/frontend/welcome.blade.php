@@ -206,7 +206,7 @@
                                     <!-- homes content -->
                                     <div class="homes-content">
                                         <!-- homes address -->
-                                        <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
+                                        <h3><a href="/detail">Real House Luxury Villa</a></h3>
                                         <p class="homes-address mb-3">
                                             <a href="single-property-1.html">
                                                 <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South,

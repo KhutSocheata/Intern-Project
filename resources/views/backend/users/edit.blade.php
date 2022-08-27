@@ -11,16 +11,17 @@
             @method('PUT')
             
             <div class="card-body">
-                <div class="form-group">
+                <div class="form-group" style="padding: 0px 10px" >
                     <label for="name">Edit name</label>
                     <input type="text" class="form-control" name="name" value="{{$user->name}}" id="exampleInputName1" placeholder="Enter name">
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="padding: 0px 10px">
                     <label for="email">Edit email</label>
                     <input type="email" class="form-control"name="email"  value="{{$user->email}}" id="exampleInputName1" placeholder="Enter email">
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
+                
+                <div class="form-group" >
+                    <div class="col-sm-5" >
                         <!-- select -->
                         <div class="form-group">
                             <label for="type">Change Type User</label>

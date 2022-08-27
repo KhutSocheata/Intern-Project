@@ -3,10 +3,10 @@
     <section class="content">
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <section class="content-header" style="margin: 0px">
+            <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding: 0px 30px">
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
@@ -19,8 +19,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6" >
-                            <ol class="breadcrumb float-sm-right">
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right" style="padding: 0px 30px">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                                 <li class="breadcrumb-item active">Property</li>
                             </ol>
@@ -29,10 +29,13 @@
                 </div><!-- /.container-fluid -->
             </section>
             <!-- Default box -->
-            <div class="card" style="margin: 0px 10px">
+            <div class="card" style="margin: 0px 40px">
                 <div class="card-header">
-                    <h3 class="card-title">Detail Of Room</h3>
-                    <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('posts.create') }}"> Create New Room</a>
+                    <h3 class="card-title">Property</h3>
+                    <a href="/manager/post/create">
+                        <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('posts.create') }}">
+                            Create New Address</a>
+                    </a>
                 </div>
                 <div class="card-body p-0">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
@@ -45,149 +48,136 @@
                                     Name
                                 </th>
                                 <th class="text-center">
-                                    Image
+                                    Description
                                 </th>
                                 <th class="text-center">
                                     Address
                                 </th>
                                 <th class="text-center">
-                                    Description
+                                    Prices
                                 </th>
                                 <th class="text-center">
-                                    Bathroom
+                                    Type
                                 </th>
                                 <th class="text-center">
-                                    Bedroom
+                                    Cover
                                 </th>
-                                
-                                <th class="text-center">
-                                    Size
+                                {{-- <th style="width: 10%" class="text-center">
+                                    Status
+                                </th> --}}
+                                <th style="width: 10%" class="text-center">
+                                    Create_At
                                 </th>
-                                <th class="text-center">
-                                    Near_By
-                                </th>
-                                <th class="text-center">
-                                    Create At
-                                </th>
-                                
-                                <th style="width: 15%" class="text-center">
+                                <th style="width: 22%" class="text-center">
                                     Operations
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $posts as $key => $post)
-                            <tr>
-                                <td>
-                                    {{$post->id}}.
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->name}}$
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->image}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->address}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->description}}
-                                        
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->bathroom}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->bedroom}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $post->size}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $room->nearby}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <a>
-                                        {{ $room->created_at}}
-                                    </a>
-                                </td>
-                                
-                                <td class="project-actions text-right">
-
-                                    <div class="project-actions text-right">
-                                        <div class="project-actions text-right">
-                                            <form action="{{ route('posts.destroy', $post->id) }}"
-                                                method="POST">
-                                                <a href="{{ route('posts.edit', $post->id) }}"
-                                                    class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top"
-                                                    title="Edit">
-                                                    <i class="fas fa-pencil-alt"></i> Edit
-                                                </a>
-                                                @csrf
-                                                @method('DELETE')
-                                                {{-- <button type="submit" style="border: none" class="action_btn"
-                                                    data-toggle="tooltip" data-placement="top" title="Delete"> <i
-                                                        class="fas fa-trash"></i></button> --}}
-
-                                                <input name="_method" type="hidden" value="DELETE" >
-                                                <button type="submit"
-                                                    class=" btn btn-danger btn-sm btn-flat show-alert-delete-box "
-                                                    data-toggle="tooltip" title='Delete' style="border-radius: 4px"><i class='fas fa-trash'
-                                                        style='color:#ffffff; '></i> Delete</button>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </td>
-                            </tr>
+                            @php $i=1; @endphp
+                            @foreach ($posts as $post)
+                                <tr>
+                                    <td class="text-center">
+                                        <a>
+                                            {{ $post->id }}.
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a>
+                                            {{ $post->name }}
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a>
+                                            {{ $post->description }}
+                                        </a>
+                                    </td>
+                                    {{-- <td class="text-center">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar"
+                                                src="{{ asset('backend/dist/img/avatar.png') }}">
+                                        </li>
+                                    </ul>
+                                </td> --}}
+                                    <td class="text-center">
+                                        <a>
+                                            {{ $post->address }}
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a>
+                                            {{ $post->price }}
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        {{--  --}}
+                                        <span class="badge badge-success" style="font-size: 15px; " > 
+                                            
+                                            @foreach($post->types as $type)
+                                            {{ $type }}
+                                            @endforeach
+                                           
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <img src="{{asset('/cover/' . $post->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
+                                    </td>
+                                    <td class="text-center">
+                                        <a>
+                                            {{ $post->created_at }}
+                                        </a>
+                                    </td>
+                                    {{-- <td class="project-state">
+                                    <span class="badge badge-success">{{ $product->status }}</span>
+                                </td> --}}
+                                    <td class="project-actions text-right">
+                                        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                                             @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fas fa-pencil-alt"></i> View
+                                            </a>
+                                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fas fa-pencil-alt"></i> Edit
+                                            </a>
+                                            {{-- <button type="submit" style="border: none" class="action_btn"
+                                                data-toggle="tooltip" data-placement="top" title="Delete"> <i
+                                                    class="fas fa-trash"></i></button> --}}
+                                            <input name="_method" type="hidden" value="DELETE" >
+                                            <button type="submit" class=" btn btn-danger btn-sm btn-flat show-alert-delete-box " data-toggle="tooltip" title='Delete' style="border-radius: 4px">
+                                                <i class='fas fa-trash' style='color:#ffffff; '></i>Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <p style="padding: 10px">{!! $rooms->links() !!}</p>
-                    
-
-
-
-
                 </div>
                 <!-- /.card-body -->
             </div>
-           
         </div>
         <!-- /.card -->
 
     </section>
     <script>
-        $(function () {
-          $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-          $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-          });
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
-      </script>
+    </script>
 @endsection

@@ -3,10 +3,10 @@
     <section class="content">
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <section class="content-header" style="margin: 0px 30px">
+            <section class="content-header" >
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="padding: 0px 30px">
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+                            <ol class="breadcrumb float-sm-right" style="padding: 0px 30px">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                                 <li class="breadcrumb-item active">Location</li>
                             </ol>
@@ -133,6 +133,7 @@
                     </table>
                     <p>{!! $addresses->links() !!}</p>
                 </div>
+                <p class="text-center">{{session('success')}}</p>
                 <!-- /.card-body -->
             </div>
         </div>

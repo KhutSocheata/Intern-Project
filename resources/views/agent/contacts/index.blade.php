@@ -1,6 +1,6 @@
-
 @extends('agent.layouts.app')
 @section('content')
+
 <section class="content">
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -33,7 +33,7 @@
         <div class="card" style="margin: 0px 40px">
             <div class="card-header">
                 <h3 class="card-title">Address</h3>
-                <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('contacts.create') }}"> Create New Address</a>
+                
             </div>
             <div class="card-body p-0">
                 <table id="example2" class="table table-bordered table-hover table-striped projects">
@@ -171,6 +171,4 @@
         });
     });
 </script>
-
-
 @endsection
