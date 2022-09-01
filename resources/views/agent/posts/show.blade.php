@@ -1,97 +1,174 @@
 @extends('agent.layouts.app')
 @section('content')
-    <div class="card card-primary" style="margin: 100px 400px; display: fixed">
-        <div class="card-header">
-            <h3 class="card-title">Show More</h3>
-            <style>
-                strong {
-                    color: rgb(68, 199, 160);
-                }
-            </style>
+    <div class="content-wrapper " style="height: 1005px;">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Show Property </h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
+        <div class="pd-wrap">
+            <div class="container">
+                <div class="heading-section">
+                    <h2>Property Details</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="slider" class="owl-carousel product-slider">
+                            <div class="item">
+                                <img <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive"
+                                    alt="" srcset="">
+                            </div>
+                            <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div>
+                            <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div>
+                            <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div>
+                        </div>
+                        <div id="thumb" class="owl-carousel product-thumb">
+                            <div class="item">
+                                <img
+                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                            </div>
+                            <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div>
+                            <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div>
+                            <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product-dtl">
+                            <div class="product-info">
+                                <div class="product-name">{{ $property->name }}</div>
+                                <div class="reviews-counter">
+                                    <div class="rate">
+                                        <li class="fa fa-map-marker"></li> {{ $property->address }}
+                                    </div>
+                                </div>
+                                <div class="product-price-discount"><span>${{ $property->price_sale }}</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut
+                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco
+                                    laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-
-        <div class="cart-title">
-
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 ">
-                <div class="form-group">
-                    <strong>ID:</strong>
-                    {{ $post->id }}
+                                <div class="row mb-4">
+                                    <div class="col-md-12 mb-3">
+                                        <strong for="size">PROPERTY</strong>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span for="size">Bedrooms</span>
+                                        <div class="reviews-counter">
+                                            <strong class="rate">{{ $property->bedroom }}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span for="color">Bathrooms</span>
+                                        <div class="reviews-counter">
+                                            <strong class="rate">{{ $property->bathroom }}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span for="color">Size</span>
+                                        <div class="reviews-counter">
+                                            <strong class="rate">{{ $property->size }} Square</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-12 mb-3">
+                                        <strong for="size">AMENITY</strong>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span for="size">Pool</span>
+                                        <div class="reviews-counter">
+                                            <strong class="rate">Yes</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span for="color">Parking</span>
+                                        <div class="reviews-counter">
+                                            <strong class="rate">Yes</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span for="color">Internet</span>
+                                        <div class="reviews-counter">
+                                            <strong class="rate">Yes</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="product-count">
+                                <label for="size">Quantity</label>
+                                <form action="#" class="display-flex">
+                                    <div class="qtyminus">-</div>
+                                    <input type="text" name="quantity" value="1" class="qty">
+                                    <div class="qtyplus">+</div>
+                                </form>
+                                <a href="#" class="round-black-btn">Add to Cart</a>
+                            </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info-tabs">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description"
+                                    role="tab" aria-controls="description" aria-selected="true">Description</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel"
+                                aria-labelledby="description-tab">
+                                {{ $property->description }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    {{ $post->name }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    {{ $post->description }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Address:</strong>
-                    {{ $post->address }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Bedroom:</strong>
-                    {{ $post->bedroom }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Bathroom:</strong>
-                    {{ $post->bathroom }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Price:</strong>
-                    {{ $post->price }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Quare:</strong>
-                    {{ $post->size }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Cover:</strong>
-                    <img src="{{ asset('/cover/' . $post->cover) }}" class="img-responsive"
-                        style="max-height:500px; max-width:750px" alt="" srcset="">
-                </div>
-            </div>
-
-
-            {{-- <p>Images:</p>
-                        @foreach ($property->images as $img)
-                            <form action="/deleteimage/{{ $img->id }}" method="post">
-                                <button class="btn text-danger">X</button>
-                                @csrf
-                                @method('delete')
-                            </form>
-                            <img src="/images/{{ $img->image }}" class="img-responsive"
-                                style="max-height: 100px; max-width: 100px;" alt="" srcset="">
-                        @endforeach --}}
-
-
-            <div class="text-left" style="padding: 5px 10px">
-                <a class="btn btn-primary " href="{{ route('posts.index') }}"> Back</a>
             </div>
         </div>
-
-
     </div>
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script>
 @endsection

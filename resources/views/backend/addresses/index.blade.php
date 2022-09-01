@@ -1,7 +1,8 @@
 @extends('backend.layouts.app')
 @section('content')
+<div class="content-wrapper">
     <section class="content">
-        <div class="content-wrapper">
+        
             <!-- Content Header (Page header) -->
             <section class="content-header" >
                 <div class="container-fluid">
@@ -133,13 +134,18 @@
                     </table>
                     <p>{!! $addresses->links() !!}</p>
                 </div>
-                <p class="text-center">{{session('success')}}</p>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
                 <!-- /.card-body -->
             </div>
-        </div>
+       
         <!-- /.card -->
 
     </section>
+</div>
     <script>
         $(function() {
             $("#example1").DataTable({

@@ -20,9 +20,10 @@ return new class extends Migration
             $table->integer('bedroom');
             $table->integer('bathroom');
             $table->string('size');
-            $table->float('price', 8, 2);
+            $table->float('price_sale', 8, 2);
+            $table->float('price_rent', 8, 2);
+            $table->float('price_rental', 8, 2);
             $table->string('cover');
-            $table->json('types');
             $table->string('description');
             $table->timestamps();
         });

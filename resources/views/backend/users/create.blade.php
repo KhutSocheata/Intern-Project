@@ -1,6 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
-    <div class="card card-primary" style="margin: 100px 400px;">
+<div class="content-wrapper px-5 mt-4">
+    <div class="card card-primary" >
         <div class="card-header">
             <h3 class="card-title">Create Account User</h3>
         </div>
@@ -32,6 +33,17 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label>{{ __('Phone Number') }}</label>
+                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                    name="phone" value="{{ old('phone') }}" required autocomplete="phone"
+                    placeholder="Phone Number">
+                @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label>{{ __('Password') }}</label>
                 <input id="password" type="password"
                     class="form-control @error('password') is-invalid @enderror" name="password" required 
@@ -49,6 +61,7 @@
                     <div>
                         <label for="type">Type User</label>
                         <select class="custom-select" name="type" > 
+                            <option value="#">Select here</option>
                             <option value="1">Admin</option>
                             <option value="2">Agent</option>
                             <option value="0">Customer</option>
@@ -65,6 +78,7 @@
         </div>
         </form>
     </div>
+</div>
     <script>
         $(function() {
             bsCustomFileInput.init();

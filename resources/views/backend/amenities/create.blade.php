@@ -1,6 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
-    <div class="card card-primary" style="margin: 100px 400px; display: fixed">
+<div class="content-wrapper px-5 mt-4">
+    <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Create Amenity</h3>
         </div>
@@ -27,6 +28,7 @@
             </div>
         </form>
     </div>
+</div>
     <script>
         $(function() {
             bsCustomFileInput.init();

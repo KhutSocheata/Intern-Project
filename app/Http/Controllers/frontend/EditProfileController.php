@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class EditProfileController extends Controller
 {
@@ -14,7 +15,8 @@ class EditProfileController extends Controller
      */
     public function index()
     {
-        return view('frontend.edit-profile');
+        $users = User::all();
+        return view('frontend.edit-profile',compact('users'));
     }
 
     /**

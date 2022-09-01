@@ -1,7 +1,8 @@
 @extends('backend.layouts.app')
 @section('content')
+<div class="content-wrapper"> 
     <section class="content">
-        <div class="content-wrapper">
+        
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -12,7 +13,7 @@
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                                        aria-label="Search">
+                                        aria-label="Search" id="myInput">
                                     <div class="input-group-append">
                                         <button class="btn btn-sidebar">
                                             <i class="fas fa-search fa-fw"></i>
@@ -179,7 +180,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                             
                             @foreach ($users as $key => $user)
                             @if($user->type == 'user')
@@ -264,10 +265,10 @@
            {{-- <div class="project-actions text-center">{!! $users->links() !!}</div> --}}
         <!-- /.card -->
         <p style="padding: 10px">{!! $users->links() !!}</p>
-        </div>
+        
 
     </section>
-    
+</div>
     
         <!-- /.card-body -->
     </div>

@@ -28,19 +28,16 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|min:2|max:100',
             'email' => 'required|min:2|max:100',
-            'phone' => 'required|min:8|max:100',
         ], [
             'name.required' => 'Name is required',
             'email.required' => 'Email is required',
-            'phone.required' => 'Phone is required',
         ]);
 
         $user = auth()->user();
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
-            'avatar' => $user->avatar,     
+            'avatar' => $user->avatar,
         ]);
     	if($request->hasFile('avatar')){
     		$avatar = $request->file('avatar');

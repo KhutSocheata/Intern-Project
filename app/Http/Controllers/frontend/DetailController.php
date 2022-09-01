@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -14,7 +15,8 @@ class DetailController extends Controller
      */
     public function index()
     {
-        return view('frontend.detail');
+        $properties = Property::paginate(6);
+        return view('frontend.details.index',compact('properties'));
     }
 
     /**
@@ -44,9 +46,9 @@ class DetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Property $properties)
     {
-        //
+        return view('frontend.details.show',compact('properties'));
     }
 
     /**

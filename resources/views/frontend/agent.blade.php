@@ -119,6 +119,9 @@
                     <p>We provide full service at every step.</p>
                 </div>
                 <div class="row team-all">
+                    @foreach($users as $user)
+                    @if($user->type == 'manager') 
+                   
                     <div class="col-lg-3 col-md-6 team-pro">
                         <div class="team-wrap">
                             <div class="team-img">
@@ -126,7 +129,7 @@
                             </div>
                             <div class="team-content">
                                 <div class="team-info">
-                                    <h3>Carls Jhons</h3>
+                                    <h3>{{$user->name}}</h3>
                                     <p>Financial Advisor</p>
                                     <div class="team-socials">
                                         <ul>
@@ -142,75 +145,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 team-pro">
-                        <div class="team-wrap">
-                            <div class="team-img">
-                                <img src="images/team/t-6.jpg" alt="" />
-                            </div>
-                            <div class="team-content">
-                                <div class="team-info">
-                                    <h3>Arling Tracy</h3>
-                                    <p>Acountant</p>
-                                    <div class="team-socials">
-                                        <ul>
-                                            <li>
-                                                <a href="#" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                <a href="#" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="#" title="instagran"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span><a href="team-details.html">View Profile</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 team-pro pb-none">
-                        <div class="team-wrap">
-                            <div class="team-img">
-                                <img src="images/team/t-7.jpg" alt="" />
-                            </div>
-                            <div class="team-content">
-                                <div class="team-info">
-                                    <h3>Mark Web</h3>
-                                    <p>Founder &amp; CEO</p>
-                                    <div class="team-socials">
-                                        <ul>
-                                            <li>
-                                                <a href="#" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                <a href="#" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="#" title="instagran"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span><a href="team-details.html">View Profile</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 team-pro kat">
-                        <div class="team-wrap">
-                            <div class="team-img">
-                                <img src="images/team/t-8.jpg" alt="" />
-                            </div>
-                            <div class="team-content">
-                                <div class="team-info">
-                                    <h3>Katy Grace</h3>
-                                    <p>Team Leader</p>
-                                    <div class="team-socials">
-                                        <ul>
-                                            <li>
-                                                <a href="#" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                <a href="#" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="#" title="instagran"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span><a href="team-details.html">View Profile</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </section>

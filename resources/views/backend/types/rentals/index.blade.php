@@ -1,7 +1,8 @@
 @extends('backend.layouts.app')
 @section('content')
-    <section class="content">
-        <div class="content-wrapper">
+<div class="content-wrapper" > 
+    <section class="content" >
+       
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -40,7 +41,6 @@
                 <div class="card-body p-0">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
                         <thead>
-                           
                             <tr>
                                 <th style="width: 1%">
                                     ID.
@@ -49,17 +49,12 @@
                                     Name
                                 </th>
                                 <th class="text-center">
-                                    Description
-                                </th>
-                                <th class="text-center">
                                     Address
                                 </th>
                                 <th class="text-center">
                                     Prices
                                 </th>
-                                <th class="text-center">
-                                    Type
-                                </th>
+                                
                                 <th class="text-center">
                                     Cover
                                 </th>
@@ -77,7 +72,6 @@
                         <tbody>
                             @php $i=1; @endphp
                             @foreach ($properties as $property)
-                            @if($property->types == ["Rental"] || $property->types == ["Sale", "Rental"] || $property->types == ["Rent", "Rental"] || $property->types == ["Sale","Rent","Rental"] )
                                 <tr>
                                     <td class="text-center">
                                         <a>
@@ -87,11 +81,6 @@
                                     <td class="text-center">
                                         <a>
                                             {{ $property->name }}
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a>
-                                            {{ $property->description }}
                                         </a>
                                     </td>
                                     {{-- <td class="text-center">
@@ -109,17 +98,10 @@
                                     </td>
                                     <td class="text-center">
                                         <a>
-                                            {{ $property->price }}
+                                            ${{ $property->price_rent }}.00
                                         </a>
                                     </td>
-                                    <td class="text-center">
-                                        {{--  --}}
-                                        <span class="badge badge-success" style="font-size: 15px; " > 
-                                            
-                                          Rental
-                                           
-                                        </span>
-                                    </td>
+                                
                                     <td class="text-center">
                                         <img src="{{asset('/cover/' . $property->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
                                     </td>
@@ -151,17 +133,18 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endif
                             @endforeach
                         </tbody>
                     </table>
+                    <p>{!! $properties->links() !!}</p>
                 </div>
                 <!-- /.card-body -->
             </div>
-        </div>
+      
         <!-- /.card -->
 
     </section>
+</div>
     <script>
         $(function() {
             $("#example1").DataTable({

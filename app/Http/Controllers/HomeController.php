@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Room;
 use App\Models\Property;
+use App\Models\Contact;
  
 use Illuminate\Http\Request;
   
@@ -26,8 +27,11 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+
     {
-        return view('frontend.welcome');
+        $property = Property::get()->count();             
+        $room = Room::get()->count();             
+        return view('frontend.welcome',compact('property','room'));
     } 
   
     /**
@@ -40,11 +44,12 @@ class HomeController extends Controller
         // dd('12345');
 
         $user = User::get()->count();
-        $room = Room::get()->count();
+        $agent = User::where('type','=','manager')->count();
+        $contact = Contact::get()->count();
         $property = Property::get()->count();
        
 
-        return view('backend.layouts.dashboard', compact('room','property','user'));
+        return view('backend.layouts.dashboard', compact('contact','property','user','agent'));
 
     }
   
@@ -55,6 +60,9 @@ class HomeController extends Controller
      */
     public function managerHome()
     {
-        return view('agent.layouts.dashboard');
+        $users = User::where('type','=','user')->count();
+        $property = Property::get()->count();
+        $contact = Contact::get()->count();
+        return view('agent.layouts.dashboard',compact('users','property','contact'));
     }
 }

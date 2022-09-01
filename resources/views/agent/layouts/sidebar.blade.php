@@ -6,14 +6,13 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <a href="/admin/users/1/edit">
+        <a href="/editprofile">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ asset('/backend/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                    alt="User Image">
-            </div>
+            <div class="image">                      
+                <img src="/profiles/avatars/{{ Auth::user()->avatar}}" alt="author-image" class="img-circle elevation-2">
+        </div>
             <div class="info">
-                <a href="/admin/users/1/edit" class="d-block">{{auth()->user()->name}}</a>
+                <a href="/editprofile" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
     </a>
@@ -61,7 +60,7 @@
                       </li>
                     <li class="nav-item">
                         <a href="/manager/contacts" class="nav-link">
-                            <i class="nav-icon bi bi-people"></i>
+                            <i class="nav-icon bi bi-envelope"></i>
                             <p>
                                Contact Us
                                 

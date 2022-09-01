@@ -1,17 +1,17 @@
 {{-- <div class="preloader flex-column justify-content-center align-items-center">
   <img class="animation__wobble" src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
 </div> --}}
-<nav class="main-header navbar navbar-expand navbar-dark">
+<nav class="main-header navbar navbar-expand navbar-primary">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button" style="color:#fff"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/" class="nav-link">Home</a>
+      <a href="/" class="nav-link text-white">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/contact" class="nav-link">Contact</a>
+      <a href="/contact" class="nav-link text-white"style="color:#fff">Contact</a>
     </li>
   </ul>
 

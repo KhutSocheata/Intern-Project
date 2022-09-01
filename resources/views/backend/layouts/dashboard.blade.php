@@ -43,9 +43,9 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>{{$agent}}<sup style="font-size: 20px"></sup></h3>
 
-              <p>Bounce Rate</p>
+              <p>Total Agents</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -73,9 +73,9 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{$contact}}</h3>
 
-              <p>Unique Visitors</p>
+              <p>Total Contacts</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

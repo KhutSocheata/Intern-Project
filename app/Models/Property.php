@@ -14,16 +14,15 @@ class Property extends Model
         'bedroom',
         'bathroom',
         'size',
-        'price',
+        'price_sale',
+        'price_rent',
+        'price_rental',
         'cover',
         'description',
         
-        'types'
     ];
 
-    protected $casts=[
-        'types'=>'array',
-    ];
+ 
 
     public function images(){
         return $this->belongsTo(Image::class);

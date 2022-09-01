@@ -1,7 +1,8 @@
 @extends('backend.layouts.app')
 @section('content')
+<div class="content-wrapper">
     <section class="content">
-        <div class="content-wrapper">
+        
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -10,7 +11,7 @@
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                                        aria-label="Search">
+                                        aria-label="Search" id="myInput">
                                     <div class="input-group-append">
                                         <button class="btn btn-sidebar">
                                             <i class="fas fa-search fa-fw"></i>
@@ -48,17 +49,12 @@
                                     Name
                                 </th>
                                 <th class="text-center">
-                                    Description
-                                </th>
-                                <th class="text-center">
                                     Address
                                 </th>
                                 <th class="text-center">
                                     Prices
                                 </th>
-                                <th class="text-center">
-                                    Type
-                                </th>
+                                
                                 <th class="text-center">
                                     Cover
                                 </th>
@@ -73,7 +69,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                             @php $i=1; @endphp
                             @foreach ($properties as $property)
                                 <tr>
@@ -85,11 +81,6 @@
                                     <td class="text-center">
                                         <a>
                                             {{ $property->name }}
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a>
-                                            {{ $property->description }}
                                         </a>
                                     </td>
                                     {{-- <td class="text-center">
@@ -107,19 +98,10 @@
                                     </td>
                                     <td class="text-center">
                                         <a>
-                                            {{ $property->price }}
+                                            ${{ $property->price_sale }}.00
                                         </a>
                                     </td>
-                                    <td class="text-center">
-                                        {{--  --}}
-                                        <span class="badge badge-success" style="font-size: 15px; " > 
-                                            
-                                            @foreach($property->types as $type)
-                                            {{ $type }}
-                                            @endforeach
-                                           
-                                        </span>
-                                    </td>
+                                
                                     <td class="text-center">
                                         <img src="{{asset('/cover/' . $property->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
                                     </td>
@@ -154,13 +136,16 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <p>{!! $properties->links() !!}</p>
                 </div>
                 <!-- /.card-body -->
             </div>
-        </div>
+       
+   
         <!-- /.card -->
 
-    </section>
+    </section> 
+</div>
     <script>
         $(function() {
             $("#example1").DataTable({

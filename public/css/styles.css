@@ -5793,7 +5793,6 @@ element.style {
 .login-and-register-form #tabs-container {
     float: left;
     width: 100%;
-    margin-top: 20px;
     padding: 0 30px;
 }
 
@@ -6866,7 +6865,7 @@ a.button,
     background: #696565;
 }
 
-.header-user-name span:after {
+/* .header-user-name span:after {
     position: absolute;
     content: "";
     height: 12px;
@@ -6879,7 +6878,7 @@ a.button,
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
     border-radius: 50%;
-}
+} */
 
 .homepage-4 a.button.border,
 a.button,

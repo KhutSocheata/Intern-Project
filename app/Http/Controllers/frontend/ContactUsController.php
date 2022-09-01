@@ -4,6 +4,8 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Models\ContactUs;
 
 class ContactUsController extends Controller
 {
@@ -14,7 +16,8 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        return view('frontend.contact');
+       
+        // return view('frontend.contact');
     }
 
     /**
@@ -24,7 +27,7 @@ class ContactUsController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.contact');
     }
 
     /**
@@ -35,7 +38,16 @@ class ContactUsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email'=>'required',
+            'phone' => 'required',
+            'message' => 'required',
+        ]);
+    
+        Contact::create($request->all());
+
+        return redirect()->route('contact.create')->with('success','Message sent successfully.');
     }
 
     /**

@@ -1,7 +1,8 @@
 @extends('agent.layouts.app')
 @section('content')
+<div class="content-wrapper">
     <section class="content">
-        <div class="content-wrapper">
+        
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -32,8 +33,8 @@
             <div class="card" style="margin: 0px 40px">
                 <div class="card-header">
                     <h3 class="card-title">Property</h3>
-                    <a href="/manager/post/create">
-                        <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('posts.create') }}">
+                    <a href="/admin/property/create">
+                        <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('properties.create') }}">
                             Create New Address</a>
                     </a>
                 </div>
@@ -48,17 +49,12 @@
                                     Name
                                 </th>
                                 <th class="text-center">
-                                    Description
-                                </th>
-                                <th class="text-center">
                                     Address
                                 </th>
                                 <th class="text-center">
                                     Prices
                                 </th>
-                                <th class="text-center">
-                                    Type
-                                </th>
+                                
                                 <th class="text-center">
                                     Cover
                                 </th>
@@ -75,21 +71,16 @@
                         </thead>
                         <tbody>
                             @php $i=1; @endphp
-                            @foreach ($posts as $post)
+                            @foreach ($properties as $property)
                                 <tr>
                                     <td class="text-center">
                                         <a>
-                                            {{ $post->id }}.
+                                            {{ $property->id }}.
                                         </a>
                                     </td>
                                     <td class="text-center">
                                         <a>
-                                            {{ $post->name }}
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a>
-                                            {{ $post->description }}
+                                            {{ $property->name }}
                                         </a>
                                     </td>
                                     {{-- <td class="text-center">
@@ -102,43 +93,34 @@
                                 </td> --}}
                                     <td class="text-center">
                                         <a>
-                                            {{ $post->address }}
+                                            {{ $property->address }}
                                         </a>
                                     </td>
                                     <td class="text-center">
                                         <a>
-                                            {{ $post->price }}
+                                            ${{ $property->price_sale }}.00
                                         </a>
                                     </td>
+                                
                                     <td class="text-center">
-                                        {{--  --}}
-                                        <span class="badge badge-success" style="font-size: 15px; " > 
-                                            
-                                            @foreach($post->types as $type)
-                                            {{ $type }}
-                                            @endforeach
-                                           
-                                        </span>
-                                    </td>
-                                    <td class="text-center">
-                                        <img src="{{asset('/cover/' . $post->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
+                                        <img src="{{asset('/cover/' . $property->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
                                     </td>
                                     <td class="text-center">
                                         <a>
-                                            {{ $post->created_at }}
+                                            {{ $property->created_at }}
                                         </a>
                                     </td>
                                     {{-- <td class="project-state">
                                     <span class="badge badge-success">{{ $product->status }}</span>
                                 </td> --}}
                                     <td class="project-actions text-right">
-                                        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                                        <form action="{{ route('properties.destroy', $property->id) }}" method="post">
                                              @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <a href="{{ route('properties.show', $property->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fas fa-pencil-alt"></i> View
                                             </a>
-                                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>
                                             {{-- <button type="submit" style="border: none" class="action_btn"
@@ -154,13 +136,16 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <p>{!! $properties->links() !!}</p>
                 </div>
                 <!-- /.card-body -->
             </div>
-        </div>
+       
+   
         <!-- /.card -->
 
-    </section>
+    </section> 
+</div>
     <script>
         $(function() {
             $("#example1").DataTable({

@@ -14,7 +14,7 @@
             <div class="text-heading text-center">
                 <div class="container">
                     <h1>About Our Company</h1>
-                    <h2><a href="index.html">Home </a> &nbsp;/&nbsp; About Us</h2>
+                    <h2><a href="/">Home </a> &nbsp;/&nbsp; About Us</h2>
                 </div>
             </div>
         </section>

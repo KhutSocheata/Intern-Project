@@ -1,8 +1,8 @@
 @extends('agent.layouts.app')
 @section('content')
-
+<div class="content-wrapper px-5 mt-4">
 <section class="content">
-    <div class="content-wrapper">
+    
         <!-- Content Header (Page header) -->
         <section class="content-header" style="margin: 0px 30px">
             <div class="container-fluid">
@@ -148,10 +148,11 @@
             </div>
             <!-- /.card-body -->
         </div>
-    </div>
+   
     <!-- /.card -->
 
 </section>
+</div>
 <script>
     $(function() {
         $("#example1").DataTable({

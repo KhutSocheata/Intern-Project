@@ -1,7 +1,8 @@
 @extends('backend.layouts.app')
 @section('content')
+<div class="content-wrapper">
     <section class="content">
-        <div class="content-wrapper">
+        
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -10,7 +11,7 @@
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                                        aria-label="Search">
+                                        aria-label="Search" id="myInput">
                                     <div class="input-group-append">
                                         <button class="btn btn-sidebar">
                                             <i class="fas fa-search fa-fw"></i>
@@ -34,6 +35,12 @@
                     <h3 class="card-title">Amenity Of Property</h3>
                     <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('amenities.create') }}"> Create New Amenity</a>
                 </div>
+                {{-- @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+                --}}
                 <div class="card-body p-0">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
                         <thead>
@@ -56,7 +63,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                             @foreach( $amenities as $key => $amenity)
                             <tr>
                                 <td>
@@ -124,10 +131,13 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-        </div>
+            
+      
         <!-- /.card -->
 
     </section>
+</div>
+
     <script>
         $(function () {
           $("#example1").DataTable({
@@ -144,5 +154,6 @@
             "responsive": true,
           });
         });
-      </script>
+       
+
 @endsection

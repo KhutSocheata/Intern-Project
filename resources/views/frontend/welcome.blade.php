@@ -107,52 +107,56 @@
                 </div>
                 <div class="portfolio col-xl-12">
                     <div class="slick-lancers">
+                        @foreach($properties as $key => $property)
+                            
+                       
                         <div class="agents-grid" data-aos="fade-up" data-aos-delay="150">
                             <div class="landscapes">
                                 <div class="project-single">
                                     <div class="project-inner project-head">
                                         <div class="project-bottom">
-                                            <h4><a href="single-property-1.html">View Property</a><span
+                                            <h4><a href="{{ route('detail.show', $property->id)}}" >View Property</a><span
                                                     class="category">Real Estate</span></h4>
                                         </div>
                                         <div class="homes">
                                             <!-- homes img -->
-                                            <a href="single-property-1.html" class="homes-img">
+                                            <a href="{{ route('detail.show', $property->id)}}" class="homes-img">
                                                 <div class="homes-tag button alt featured">Featured</div>
                                                 <div class="homes-tag button alt sale">For Sale</div>
-                                                <img src="images/feature-properties/fp-1.jpg" alt="home-1" class="img-responsive">
+                                                <div class="news-item-img">
+                                                    <img class="img-responsive" src="{{asset('/cover/' . $property->cover) }}" style="height:250px; width:1000px" alt="blog image" >
+                                                </div>
                                             </a>
                                         </div>
                                     </div>
                                     <!-- homes content -->
                                     <div class="homes-content">
                                         <!-- homes address -->
-                                        <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
+                                        <h3><a href="/detail">{{$property->name}}</a></h3>
                                         <p class="homes-address mb-3">
-                                            <a href="single-property-1.html">
-                                                <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South,
-                                                    NYC</span>
+                                            <a href="/detail">
+                                                <i class="fa fa-map-marker"></i><span>{{$property->address}}</span>
                                             </a>
                                         </p>
                                         <!-- homes List -->
                                         <ul class="homes-list clearfix">
                                             <li>
                                                 <i class="fa fa-bed" aria-hidden="true"></i>
-                                                <span>6 Bedrooms</span>
+                                                <span>{{$property->bedroom}} Bedrooms</span>
                                             </li>
                                             <li>
                                                 <i class="fa fa-bath" aria-hidden="true"></i>
-                                                <span>3 Bathrooms</span>
+                                                <span>{{$property->bathroom}} Bathrooms</span>
                                             </li>
                                             <li>
                                                 <i class="fa fa-object-group" aria-hidden="true"></i>
-                                                <span>720 sq ft</span>
+                                                <span>{{$property->size}} sq ft</span>
                                             </li>
                                         </ul>
                                         <!-- Price -->
                                         <div class="price-properties">
                                             <h3 class="title mt-3">
-                                                <a href="single-property-1.html">$ 230,000</a>
+                                                <a href="/detail">$ {{$property->price_sale}}.00</a>
                                             </h3>
                                             <div class="compare">
                                                 <a href="#" title="Share">
@@ -164,7 +168,7 @@
                                             </div>
                                         </div>
                                         <div class="footer">
-                                            <a href="agent-details.html">
+                                            <a href="/detail">
                                                 <i class="fa fa-user"></i> Jhon Doe
                                             </a>
                                         </div>
@@ -172,6 +176,7 @@
                                 </div>
                             </div>
                         </div>
+                    @endforeach
         </section>
         <!-- END SECTION PROPERTIES FOR SALE -->
 
@@ -184,6 +189,7 @@
                 </div>
                 <div class="portfolio col-xl-12">
                     <div class="slick-lancers">
+                        @foreach($properties as $key => $property)
                         <div class="agents-grid" data-aos="fade-up" data-aos-delay="150">
                             <div class="landscapes">
                                 <div class="project-single">
@@ -198,40 +204,40 @@
                                                 <div class="homes-tag button alt featured">Featured</div>
                                                 <div class="homes-tag button sale rent">For Rent</div>
                                                 <div class="homes-price">Family Home</div>
-                                                <img src="images/feature-properties/fp-1.jpg" alt="home-1"
-                                                    class="img-responsive">
+                                                <div class="news-item-img">
+                                                    <img class="img-responsive" src="{{asset('/cover/' . $property->cover) }}" style="height:250px; width:1000px" alt="blog image" >
+                                                </div>
                                             </a>
                                         </div>
                                     </div>
                                     <!-- homes content -->
                                     <div class="homes-content">
                                         <!-- homes address -->
-                                        <h3><a href="/detail">Real House Luxury Villa</a></h3>
+                                        <h3><a href="/detail">{{$property->name}}</a></h3>
                                         <p class="homes-address mb-3">
                                             <a href="single-property-1.html">
-                                                <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South,
-                                                    NYC</span>
+                                                <i class="fa fa-map-marker"></i><span>{{$property->address}}</span>
                                             </a>
                                         </p>
                                         <!-- homes List -->
                                         <ul class="homes-list clearfix">
                                             <li>
                                                 <i class="fa fa-bed" aria-hidden="true"></i>
-                                                <span>6 Bedrooms</span>
+                                                <span>{{$property->bedroom}} Bedrooms</span>
                                             </li>
                                             <li>
                                                 <i class="fa fa-bath" aria-hidden="true"></i>
-                                                <span>3 Bathrooms</span>
+                                                <span>{{$property->bathroom}} Bathrooms</span>
                                             </li>
                                             <li>
                                                 <i class="fa fa-object-group" aria-hidden="true"></i>
-                                                <span>720 sq ft</span>
+                                                <span>{{$property->size}} sq ft</span>
                                             </li>
                                         </ul>
                                         <!-- Price -->
                                         <div class="price-properties">
                                             <h3 class="title mt-3">
-                                                <a href="single-property-1.html">$ 230,000</a>
+                                                <a href="single-property-1.html">$ {{$property->price_rent}}.00</a>
                                             </h3>
                                             <div class="compare">
                                                 <a href="#" title="Share">
@@ -251,6 +257,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
         </section>
         <!-- END SECTION PROPERTIES FOR RENT -->
 
@@ -320,8 +327,8 @@
                             <img src="images/popular-places/7.jpg" class="img-responsive" alt="">
                             <!-- Badge -->
                             <div class="img-box-content visible">
-                                <h4 class="mb-2">New York</h4>
-                                <span>203 Properties</span>
+                                <h4 class="mb-2">Phnom Penh</h4>
+                                <span>{{ $phnom_penh }} Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>
@@ -342,8 +349,8 @@
                         <a href="listing-details.html" class="img-box hover-effect">
                             <img src="images/popular-places/8.jpg" class="img-responsive" alt="">
                             <div class="img-box-content visible">
-                                <h4 class="mb-2">Los Angeles</h4>
-                                <span>307 Properties</span>
+                                <h4 class="mb-2">Sihano</h4>
+                                <span> {{ $sihano }}Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>
@@ -364,8 +371,8 @@
                         <a href="listing-details.html" class="img-box hover-effect">
                             <img src="images/popular-places/9.jpg" class="img-responsive" alt="">
                             <div class="img-box-content visible">
-                                <h4 class="mb-2">Miami </h4>
-                                <span>409 Properties</span>
+                                <h4 class="mb-2">Siem reab </h4>
+                                <span>{{ $siem_reab }} Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>
@@ -386,8 +393,8 @@
                         <a href="listing-details.html" class="img-box no-mb mi x3 hover-effect">
                             <img src="images/popular-places/10.jpg" class="img-responsive" alt="">
                             <div class="img-box-content visible">
-                                <h4 class="mb-2">Chicago</h4>
-                                <span>507 Properties</span>
+                                <h4 class="mb-2">Batambang</h4>
+                                <span>{{ $bat_dambang }} Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>
@@ -408,8 +415,8 @@
                         <a href="listing-details.html" class="img-box no-mb mi x3 hover-effect">
                             <img src="images/popular-places/11.jpg" class="img-responsive" alt="">
                             <div class="img-box-content visible">
-                                <h4 class="mb-2">San Francisco</h4>
-                                <span>99 Properties</span>
+                                <h4 class="mb-2">Kompongcham</h4>
+                                <span>{{ $kampongchnang }} Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>
@@ -430,8 +437,8 @@
                         <a href="listing-details.html" class="img-box san no-mb x3 hover-effect">
                             <img src="images/popular-places/5.jpg" class="img-responsive" alt="">
                             <div class="img-box-content visible">
-                                <h4 class="mb-2">Detroit </h4>
-                                <span>308 Properties</span>
+                                <h4 class="mb-2">Kompot </h4>
+                                <span>{{ $kompot }} Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>

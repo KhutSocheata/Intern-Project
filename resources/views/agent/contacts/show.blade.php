@@ -1,7 +1,8 @@
 @extends('agent.layouts.app')
 @section('content')
-    <div class="card card-primary" style="margin: 100px 400px; display: fixed">
-        <div class="card-header">
+<div class="content-wrapper px-5 mt-4">
+    <div class="card card-primary"  >
+        <div class="card-header" >
             <h3 class="card-title">Show More</h3>
             <style>
                 strong{
@@ -11,9 +12,9 @@
         </div>
         
                    
-                    <div class="cart-title">
+                    <div class="cart-title" >
                         
-                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 " >
                             <div class="form-group">
                                 <strong>ID:</strong>
                                 {{ $contact->id }}
@@ -50,6 +51,7 @@
                 
         
     </div>
+</div>
     <script>
         $(function() {
             bsCustomFileInput.init();

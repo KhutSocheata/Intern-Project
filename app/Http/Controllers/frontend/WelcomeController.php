@@ -16,7 +16,13 @@ class WelcomeController extends Controller
     public function index()
     {
         $properties = Property::all();
-        return view('frontend.welcome',compact('properties'));
+        $phnom_penh = Property::where('address','=','Phnom Penh')->count();
+        $sihano = Property::where('address','=','Sihano')->count();
+        $siem_reab = Property::where('address','=','Siem Reab')->count();
+        $bat_dambang = Property::where('address','=','Batdambang')->count();
+        $kampongchnang = Property::where('address','=','Kampongchnang')->count();
+        $kompot = Property::where('address','=','kompot')->count();
+        return view('frontend.welcome',compact('properties', 'phnom_penh', 'sihano', 'siem_reab', 'kampongchnang', 'bat_dambang', 'kompot'));
     }
 
     /**

@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"/>
-    
     <!-- ARCHIVES CSS -->
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/dashbord-mobile-menu.css">
@@ -51,7 +50,7 @@
                         <div class="left-side">
                             <!-- Logo -->
                             <div id="logo">
-                                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                                <a href="/"><img src="images/logo.png" alt=""></a>
                             </div>
                             <!-- Mobile Navigation -->
                             <div class="mmenu-trigger">

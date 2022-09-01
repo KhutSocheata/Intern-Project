@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Property;
 
 class ForSaleController extends Controller
 {
@@ -14,7 +15,8 @@ class ForSaleController extends Controller
      */
     public function index()
     {
-        return view('frontend.propertySale');
+        $properties= Property::paginate(6);
+        return view('frontend.propertySale',compact('properties'));
     }
 
     /**

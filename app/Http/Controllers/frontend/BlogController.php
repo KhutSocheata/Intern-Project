@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Property;
+
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Property;
+// use App\Http\Controllers\Property;
 use Illuminate\Http\Request;
 
 
@@ -16,7 +18,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('frontend.blog');
+        $properties = Property::paginate(6);
+
+        return view('frontend.blog', compact('properties'));
     }
 
     /**
